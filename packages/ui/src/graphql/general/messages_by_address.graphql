@@ -14,8 +14,18 @@ query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint
   }
 }
 
-query GetTransactionsByAddressRegex($_regex: String, $offset: Int = 0, $limit: Int = 10) {
-  transaction(where: {signer_infos: {_cast: {String: {_regex: $_regex}}}}, offset: $offset, limit: $limit) {
+query GetTransactionsByAddressRegex(
+  $_regex: String,
+  $offset: Int = 0,
+  $limit: Int = 10,
+  $order_by: [transaction_order_by!]
+) {
+  transaction(
+    where: { signer_infos: { _cast: { String: { _regex: $_regex } } } }
+    offset: $offset
+    limit: $limit
+    order_by: $order_by
+  ) {
     hash
     signatures
     fee
