@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import {
   GetMessagesByAddressQuery,
+  Order_By,
   useGetTransactionsByAddressRegexQuery,
 } from '@/graphql/types/general_types';
 import type { TransactionState } from '@/screens/account_details/components/transactions/types';
@@ -15,32 +16,35 @@ import chainConfig from '@/chainConfig';
 const LIMIT = 50;
 
 export const getAddressPubKeyRegex = async (address: string) => {
-  const response = await fetch(`${chainConfig().restApiUrl}/accounts/${address}`)
+  const response = await fetch(`${chainConfig().restApiUrl}/accounts/${address}`);
 
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
 
-  const data = await response.json() as {
-    "account": {
-      "@type": string,
-      "base_account": {
-        "address": string,
-        "pub_key": {
-          "@type": string,
-          "key": string
-        },
-        "account_number": string,
-        "sequence": string
-      },
-      "code_hash": string
-    }
+  const data = (await response.json()) as {
+    account: {
+      '@type': string;
+      base_account: {
+        address: string;
+        pub_key: {
+          '@type': string;
+          key: string;
+        };
+        account_number: string;
+        sequence: string;
+      };
+      code_hash: string;
+    };
   };
 
-  const escapedString = data.account.base_account.pub_key.key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const regex = new RegExp(escapedString).toString()
-  return regex.substring(1, regex.length - 1)
-}
+  const escapedString = data.account.base_account.pub_key.key.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    '\\$&'
+  );
+  const regex = new RegExp(escapedString).toString();
+  return regex.substring(1, regex.length - 1);
+};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const formatTransactions = (data: GetMessagesByAddressQuery): Transactions[] => {
@@ -87,7 +91,6 @@ export function useTransactions(addressRegex: string) {
 
   // reset state when address changes
   useEffect(() => {
-
     if (isFirst.current) {
       isFirst.current = false;
     } else {
@@ -115,6 +118,7 @@ export function useTransactions(addressRegex: string) {
       // address: `{${router?.query?.address ?? ''}}`,
       _regex: addressRegex,
       // types: msgTypes,
+      order_by: [{ height: Order_By.Desc }],
     },
     onCompleted: (data) => {
       const itemsLength = data.transaction.length;

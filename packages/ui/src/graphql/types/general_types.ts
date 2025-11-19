@@ -172,18 +172,6 @@ export type Account = {
   __typename?: 'account';
   address: Scalars['String']['output'];
   /** An array relationship */
-  feeGrantAllowancesByGranterAddress: Array<Fee_Grant_Allowance>;
-  /** An array relationship */
-  fee_grant_allowances: Array<Fee_Grant_Allowance>;
-  /** An array relationship */
-  multisig_proposal_votes: Array<Multisig_Proposal_Vote>;
-  /** An aggregate relationship */
-  multisig_proposal_votes_aggregate: Multisig_Proposal_Vote_Aggregate;
-  /** An array relationship */
-  multisig_proposals: Array<Multisig_Proposal>;
-  /** An aggregate relationship */
-  multisig_proposals_aggregate: Multisig_Proposal_Aggregate;
-  /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
   /** An array relationship */
   proposal_votes: Array<Proposal_Vote>;
@@ -197,66 +185,6 @@ export type Account = {
   vesting_account?: Maybe<Vesting_Account>;
   /** An array relationship */
   vesting_accounts: Array<Vesting_Account>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountFeeGrantAllowancesByGranterAddressArgs = {
-  distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountFee_Grant_AllowancesArgs = {
-  distinct_on?: InputMaybe<Array<Fee_Grant_Allowance_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Fee_Grant_Allowance_Order_By>>;
-  where?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountMultisig_Proposal_VotesArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Vote_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Vote_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountMultisig_Proposal_Votes_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Vote_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Vote_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountMultisig_ProposalsArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Bool_Exp>;
-};
-
-
-/** columns and relationships of "account" */
-export type AccountMultisig_Proposals_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Bool_Exp>;
 };
 
 
@@ -325,12 +253,6 @@ export type Account_Bool_Exp = {
   _not?: InputMaybe<Account_Bool_Exp>;
   _or?: InputMaybe<Array<Account_Bool_Exp>>;
   address?: InputMaybe<String_Comparison_Exp>;
-  feeGrantAllowancesByGranterAddress?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
-  fee_grant_allowances?: InputMaybe<Fee_Grant_Allowance_Bool_Exp>;
-  multisig_proposal_votes?: InputMaybe<Multisig_Proposal_Vote_Bool_Exp>;
-  multisig_proposal_votes_aggregate?: InputMaybe<Multisig_Proposal_Vote_Aggregate_Bool_Exp>;
-  multisig_proposals?: InputMaybe<Multisig_Proposal_Bool_Exp>;
-  multisig_proposals_aggregate?: InputMaybe<Multisig_Proposal_Aggregate_Bool_Exp>;
   proposal_deposits?: InputMaybe<Proposal_Deposit_Bool_Exp>;
   proposal_votes?: InputMaybe<Proposal_Vote_Bool_Exp>;
   proposals?: InputMaybe<Proposal_Bool_Exp>;
@@ -343,10 +265,6 @@ export type Account_Bool_Exp = {
 /** Ordering options when selecting data from "account". */
 export type Account_Order_By = {
   address?: InputMaybe<Order_By>;
-  feeGrantAllowancesByGranterAddress_aggregate?: InputMaybe<Fee_Grant_Allowance_Aggregate_Order_By>;
-  fee_grant_allowances_aggregate?: InputMaybe<Fee_Grant_Allowance_Aggregate_Order_By>;
-  multisig_proposal_votes_aggregate?: InputMaybe<Multisig_Proposal_Vote_Aggregate_Order_By>;
-  multisig_proposals_aggregate?: InputMaybe<Multisig_Proposal_Aggregate_Order_By>;
   proposal_deposits_aggregate?: InputMaybe<Proposal_Deposit_Aggregate_Order_By>;
   proposal_votes_aggregate?: InputMaybe<Proposal_Vote_Aggregate_Order_By>;
   proposals_aggregate?: InputMaybe<Proposal_Aggregate_Order_By>;
@@ -1049,22 +967,10 @@ export type Bridge_Params_Stream_Cursor_Value_Input = {
 /** columns and relationships of "bridge_token_metadata" */
 export type Bridge_Token_Metadata = {
   __typename?: 'bridge_token_metadata';
-  /** An array relationship */
-  bridge_tokens: Array<Bridge_Tokens>;
   name: Scalars['String']['output'];
   symbol: Scalars['String']['output'];
   token_id: Scalars['String']['output'];
   uri?: Maybe<Scalars['String']['output']>;
-};
-
-
-/** columns and relationships of "bridge_token_metadata" */
-export type Bridge_Token_MetadataBridge_TokensArgs = {
-  distinct_on?: InputMaybe<Array<Bridge_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Bridge_Tokens_Order_By>>;
-  where?: InputMaybe<Bridge_Tokens_Bool_Exp>;
 };
 
 /** Boolean expression to filter rows from the table "bridge_token_metadata". All fields are combined with a logical 'AND'. */
@@ -1072,7 +978,6 @@ export type Bridge_Token_Metadata_Bool_Exp = {
   _and?: InputMaybe<Array<Bridge_Token_Metadata_Bool_Exp>>;
   _not?: InputMaybe<Bridge_Token_Metadata_Bool_Exp>;
   _or?: InputMaybe<Array<Bridge_Token_Metadata_Bool_Exp>>;
-  bridge_tokens?: InputMaybe<Bridge_Tokens_Bool_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
   symbol?: InputMaybe<String_Comparison_Exp>;
   token_id?: InputMaybe<String_Comparison_Exp>;
@@ -1081,7 +986,6 @@ export type Bridge_Token_Metadata_Bool_Exp = {
 
 /** Ordering options when selecting data from "bridge_token_metadata". */
 export type Bridge_Token_Metadata_Order_By = {
-  bridge_tokens_aggregate?: InputMaybe<Bridge_Tokens_Aggregate_Order_By>;
   name?: InputMaybe<Order_By>;
   symbol?: InputMaybe<Order_By>;
   token_id?: InputMaybe<Order_By>;
@@ -1119,33 +1023,9 @@ export type Bridge_Token_Metadata_Stream_Cursor_Value_Input = {
 /** columns and relationships of "bridge_tokens" */
 export type Bridge_Tokens = {
   __typename?: 'bridge_tokens';
-  /** An object relationship */
-  bridge_token_metadatum: Bridge_Token_Metadata;
-  /** An object relationship */
-  bridge_tokens_info: Bridge_Tokens_Info;
   commission_rate: Scalars['String']['output'];
   metadata_id: Scalars['String']['output'];
   tokens_info_id: Scalars['bigint']['output'];
-};
-
-/** order by aggregate values of table "bridge_tokens" */
-export type Bridge_Tokens_Aggregate_Order_By = {
-  avg?: InputMaybe<Bridge_Tokens_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Bridge_Tokens_Max_Order_By>;
-  min?: InputMaybe<Bridge_Tokens_Min_Order_By>;
-  stddev?: InputMaybe<Bridge_Tokens_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Bridge_Tokens_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Bridge_Tokens_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Bridge_Tokens_Sum_Order_By>;
-  var_pop?: InputMaybe<Bridge_Tokens_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Bridge_Tokens_Var_Samp_Order_By>;
-  variance?: InputMaybe<Bridge_Tokens_Variance_Order_By>;
-};
-
-/** order by avg() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Avg_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "bridge_tokens". All fields are combined with a logical 'AND'. */
@@ -1153,8 +1033,6 @@ export type Bridge_Tokens_Bool_Exp = {
   _and?: InputMaybe<Array<Bridge_Tokens_Bool_Exp>>;
   _not?: InputMaybe<Bridge_Tokens_Bool_Exp>;
   _or?: InputMaybe<Array<Bridge_Tokens_Bool_Exp>>;
-  bridge_token_metadatum?: InputMaybe<Bridge_Token_Metadata_Bool_Exp>;
-  bridge_tokens_info?: InputMaybe<Bridge_Tokens_Info_Bool_Exp>;
   commission_rate?: InputMaybe<String_Comparison_Exp>;
   metadata_id?: InputMaybe<String_Comparison_Exp>;
   tokens_info_id?: InputMaybe<Bigint_Comparison_Exp>;
@@ -1164,23 +1042,11 @@ export type Bridge_Tokens_Bool_Exp = {
 export type Bridge_Tokens_Info = {
   __typename?: 'bridge_tokens_info';
   address: Scalars['String']['output'];
-  /** An array relationship */
-  bridge_tokens: Array<Bridge_Tokens>;
   chain_id: Scalars['String']['output'];
   decimals: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   is_wrapped: Scalars['Boolean']['output'];
   token_id: Scalars['Int']['output'];
-};
-
-
-/** columns and relationships of "bridge_tokens_info" */
-export type Bridge_Tokens_InfoBridge_TokensArgs = {
-  distinct_on?: InputMaybe<Array<Bridge_Tokens_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Bridge_Tokens_Order_By>>;
-  where?: InputMaybe<Bridge_Tokens_Bool_Exp>;
 };
 
 /** Boolean expression to filter rows from the table "bridge_tokens_info". All fields are combined with a logical 'AND'. */
@@ -1189,7 +1055,6 @@ export type Bridge_Tokens_Info_Bool_Exp = {
   _not?: InputMaybe<Bridge_Tokens_Info_Bool_Exp>;
   _or?: InputMaybe<Array<Bridge_Tokens_Info_Bool_Exp>>;
   address?: InputMaybe<String_Comparison_Exp>;
-  bridge_tokens?: InputMaybe<Bridge_Tokens_Bool_Exp>;
   chain_id?: InputMaybe<String_Comparison_Exp>;
   decimals?: InputMaybe<Int_Comparison_Exp>;
   id?: InputMaybe<Int_Comparison_Exp>;
@@ -1200,7 +1065,6 @@ export type Bridge_Tokens_Info_Bool_Exp = {
 /** Ordering options when selecting data from "bridge_tokens_info". */
 export type Bridge_Tokens_Info_Order_By = {
   address?: InputMaybe<Order_By>;
-  bridge_tokens_aggregate?: InputMaybe<Bridge_Tokens_Aggregate_Order_By>;
   chain_id?: InputMaybe<Order_By>;
   decimals?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
@@ -1242,24 +1106,8 @@ export type Bridge_Tokens_Info_Stream_Cursor_Value_Input = {
   token_id?: InputMaybe<Scalars['Int']['input']>;
 };
 
-/** order by max() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Max_Order_By = {
-  commission_rate?: InputMaybe<Order_By>;
-  metadata_id?: InputMaybe<Order_By>;
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
-/** order by min() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Min_Order_By = {
-  commission_rate?: InputMaybe<Order_By>;
-  metadata_id?: InputMaybe<Order_By>;
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
 /** Ordering options when selecting data from "bridge_tokens". */
 export type Bridge_Tokens_Order_By = {
-  bridge_token_metadatum?: InputMaybe<Bridge_Token_Metadata_Order_By>;
-  bridge_tokens_info?: InputMaybe<Bridge_Tokens_Info_Order_By>;
   commission_rate?: InputMaybe<Order_By>;
   metadata_id?: InputMaybe<Order_By>;
   tokens_info_id?: InputMaybe<Order_By>;
@@ -1275,21 +1123,6 @@ export enum Bridge_Tokens_Select_Column {
   TokensInfoId = 'tokens_info_id'
 }
 
-/** order by stddev() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Stddev_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_pop() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Stddev_Pop_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_samp() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Stddev_Samp_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
 /** Streaming cursor of the table "bridge_tokens" */
 export type Bridge_Tokens_Stream_Cursor_Input = {
   /** Stream column input with initial value */
@@ -1303,26 +1136,6 @@ export type Bridge_Tokens_Stream_Cursor_Value_Input = {
   commission_rate?: InputMaybe<Scalars['String']['input']>;
   metadata_id?: InputMaybe<Scalars['String']['input']>;
   tokens_info_id?: InputMaybe<Scalars['bigint']['input']>;
-};
-
-/** order by sum() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Sum_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
-/** order by var_pop() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Var_Pop_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
-/** order by var_samp() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Var_Samp_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
-};
-
-/** order by variance() on columns of table "bridge_tokens" */
-export type Bridge_Tokens_Variance_Order_By = {
-  tokens_info_id?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "bridge_transaction_submissions" */
@@ -1974,26 +1787,6 @@ export type Fee_Grant_AllowanceAllowanceArgs = {
   path?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** order by aggregate values of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Aggregate_Order_By = {
-  avg?: InputMaybe<Fee_Grant_Allowance_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Fee_Grant_Allowance_Max_Order_By>;
-  min?: InputMaybe<Fee_Grant_Allowance_Min_Order_By>;
-  stddev?: InputMaybe<Fee_Grant_Allowance_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Fee_Grant_Allowance_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Fee_Grant_Allowance_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Fee_Grant_Allowance_Sum_Order_By>;
-  var_pop?: InputMaybe<Fee_Grant_Allowance_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Fee_Grant_Allowance_Var_Samp_Order_By>;
-  variance?: InputMaybe<Fee_Grant_Allowance_Variance_Order_By>;
-};
-
-/** order by avg() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Avg_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "fee_grant_allowance". All fields are combined with a logical 'AND'. */
 export type Fee_Grant_Allowance_Bool_Exp = {
   _and?: InputMaybe<Array<Fee_Grant_Allowance_Bool_Exp>>;
@@ -2005,20 +1798,6 @@ export type Fee_Grant_Allowance_Bool_Exp = {
   granter?: InputMaybe<Account_Bool_Exp>;
   granter_address?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-};
-
-/** order by max() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Max_Order_By = {
-  grantee_address?: InputMaybe<Order_By>;
-  granter_address?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by min() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Min_Order_By = {
-  grantee_address?: InputMaybe<Order_By>;
-  granter_address?: InputMaybe<Order_By>;
-  height?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "fee_grant_allowance". */
@@ -2043,21 +1822,6 @@ export enum Fee_Grant_Allowance_Select_Column {
   Height = 'height'
 }
 
-/** order by stddev() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Stddev_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_pop() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Stddev_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_samp() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Stddev_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
 /** Streaming cursor of the table "fee_grant_allowance" */
 export type Fee_Grant_Allowance_Stream_Cursor_Input = {
   /** Stream column input with initial value */
@@ -2072,26 +1836,6 @@ export type Fee_Grant_Allowance_Stream_Cursor_Value_Input = {
   grantee_address?: InputMaybe<Scalars['String']['input']>;
   granter_address?: InputMaybe<Scalars['String']['input']>;
   height?: InputMaybe<Scalars['bigint']['input']>;
-};
-
-/** order by sum() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Sum_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by var_pop() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Var_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by var_samp() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Var_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-};
-
-/** order by variance() on columns of table "fee_grant_allowance" */
-export type Fee_Grant_Allowance_Variance_Order_By = {
-  height?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "genesis" */
@@ -2225,31 +1969,7 @@ export type Group = {
   /** An object relationship */
   group_account?: Maybe<Account>;
   members: Scalars['_text']['output'];
-  /** An array relationship */
-  multisig_proposals: Array<Multisig_Proposal>;
-  /** An aggregate relationship */
-  multisig_proposals_aggregate: Multisig_Proposal_Aggregate;
   threshold: Scalars['Int']['output'];
-};
-
-
-/** columns and relationships of "group" */
-export type GroupMultisig_ProposalsArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Bool_Exp>;
-};
-
-
-/** columns and relationships of "group" */
-export type GroupMultisig_Proposals_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Bool_Exp>;
 };
 
 /** aggregated selection of "group" */
@@ -2296,8 +2016,6 @@ export type Group_Bool_Exp = {
   account?: InputMaybe<String_Comparison_Exp>;
   group_account?: InputMaybe<Account_Bool_Exp>;
   members?: InputMaybe<_Text_Comparison_Exp>;
-  multisig_proposals?: InputMaybe<Multisig_Proposal_Bool_Exp>;
-  multisig_proposals_aggregate?: InputMaybe<Multisig_Proposal_Aggregate_Bool_Exp>;
   threshold?: InputMaybe<Int_Comparison_Exp>;
 };
 
@@ -2320,7 +2038,6 @@ export type Group_Order_By = {
   account?: InputMaybe<Order_By>;
   group_account?: InputMaybe<Account_Order_By>;
   members?: InputMaybe<Order_By>;
-  multisig_proposals_aggregate?: InputMaybe<Multisig_Proposal_Aggregate_Order_By>;
   threshold?: InputMaybe<Order_By>;
 };
 
@@ -2471,8 +2188,6 @@ export type Message = {
   involved_accounts_addresses: Scalars['_text']['output'];
   /** An object relationship */
   transaction?: Maybe<Transaction>;
-  /** An object relationship */
-  transactionByPartitionIdTransactionHash?: Maybe<Transaction>;
   transaction_hash: Scalars['String']['output'];
   type: Scalars['String']['output'];
   value: Scalars['jsonb']['output'];
@@ -2484,27 +2199,6 @@ export type MessageValueArgs = {
   path?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** order by aggregate values of table "message" */
-export type Message_Aggregate_Order_By = {
-  avg?: InputMaybe<Message_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Message_Max_Order_By>;
-  min?: InputMaybe<Message_Min_Order_By>;
-  stddev?: InputMaybe<Message_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Message_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Message_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Message_Sum_Order_By>;
-  var_pop?: InputMaybe<Message_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Message_Var_Samp_Order_By>;
-  variance?: InputMaybe<Message_Variance_Order_By>;
-};
-
-/** order by avg() on columns of table "message" */
-export type Message_Avg_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
 /** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
 export type Message_Bool_Exp = {
   _and?: InputMaybe<Array<Message_Bool_Exp>>;
@@ -2514,26 +2208,9 @@ export type Message_Bool_Exp = {
   index?: InputMaybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
   transaction?: InputMaybe<Transaction_Bool_Exp>;
-  transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Bool_Exp>;
   transaction_hash?: InputMaybe<String_Comparison_Exp>;
   type?: InputMaybe<String_Comparison_Exp>;
   value?: InputMaybe<Jsonb_Comparison_Exp>;
-};
-
-/** order by max() on columns of table "message" */
-export type Message_Max_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-  transaction_hash?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-};
-
-/** order by min() on columns of table "message" */
-export type Message_Min_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-  transaction_hash?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "message". */
@@ -2542,7 +2219,6 @@ export type Message_Order_By = {
   index?: InputMaybe<Order_By>;
   involved_accounts_addresses?: InputMaybe<Order_By>;
   transaction?: InputMaybe<Transaction_Order_By>;
-  transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Order_By>;
   transaction_hash?: InputMaybe<Order_By>;
   type?: InputMaybe<Order_By>;
   value?: InputMaybe<Order_By>;
@@ -2564,24 +2240,6 @@ export enum Message_Select_Column {
   Value = 'value'
 }
 
-/** order by stddev() on columns of table "message" */
-export type Message_Stddev_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_pop() on columns of table "message" */
-export type Message_Stddev_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by stddev_samp() on columns of table "message" */
-export type Message_Stddev_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
 /** Streaming cursor of the table "message" */
 export type Message_Stream_Cursor_Input = {
   /** Stream column input with initial value */
@@ -2600,38 +2258,8 @@ export type Message_Stream_Cursor_Value_Input = {
   value?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
-/** order by sum() on columns of table "message" */
-export type Message_Sum_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by var_pop() on columns of table "message" */
-export type Message_Var_Pop_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by var_samp() on columns of table "message" */
-export type Message_Var_Samp_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
-/** order by variance() on columns of table "message" */
-export type Message_Variance_Order_By = {
-  height?: InputMaybe<Order_By>;
-  index?: InputMaybe<Order_By>;
-};
-
 export type Messages_By_Address_Args = {
   addresses?: InputMaybe<Scalars['_text']['input']>;
-  limit?: InputMaybe<Scalars['bigint']['input']>;
-  offset?: InputMaybe<Scalars['bigint']['input']>;
-  types?: InputMaybe<Scalars['_text']['input']>;
-};
-
-export type Messages_By_Type_Args = {
   limit?: InputMaybe<Scalars['bigint']['input']>;
   offset?: InputMaybe<Scalars['bigint']['input']>;
   types?: InputMaybe<Scalars['_text']['input']>;
@@ -2924,10 +2552,6 @@ export type Multisig_Proposal = {
   group_account?: Maybe<Account>;
   id: Scalars['Int']['output'];
   messages: Scalars['jsonb']['output'];
-  /** An array relationship */
-  multisig_proposal_votes: Array<Multisig_Proposal_Vote>;
-  /** An aggregate relationship */
-  multisig_proposal_votes_aggregate: Multisig_Proposal_Vote_Aggregate;
   proposer: Scalars['String']['output'];
   /** An object relationship */
   proposer_account?: Maybe<Account>;
@@ -2948,42 +2572,11 @@ export type Multisig_ProposalMessagesArgs = {
   path?: InputMaybe<Scalars['String']['input']>;
 };
 
-
-/** columns and relationships of "multisig_proposal" */
-export type Multisig_ProposalMultisig_Proposal_VotesArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Vote_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Vote_Bool_Exp>;
-};
-
-
-/** columns and relationships of "multisig_proposal" */
-export type Multisig_ProposalMultisig_Proposal_Votes_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Multisig_Proposal_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Multisig_Proposal_Vote_Order_By>>;
-  where?: InputMaybe<Multisig_Proposal_Vote_Bool_Exp>;
-};
-
 /** aggregated selection of "multisig_proposal" */
 export type Multisig_Proposal_Aggregate = {
   __typename?: 'multisig_proposal_aggregate';
   aggregate?: Maybe<Multisig_Proposal_Aggregate_Fields>;
   nodes: Array<Multisig_Proposal>;
-};
-
-export type Multisig_Proposal_Aggregate_Bool_Exp = {
-  count?: InputMaybe<Multisig_Proposal_Aggregate_Bool_Exp_Count>;
-};
-
-export type Multisig_Proposal_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<Multisig_Proposal_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']['input']>;
-  filter?: InputMaybe<Multisig_Proposal_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "multisig_proposal" */
@@ -3009,34 +2602,12 @@ export type Multisig_Proposal_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-/** order by aggregate values of table "multisig_proposal" */
-export type Multisig_Proposal_Aggregate_Order_By = {
-  avg?: InputMaybe<Multisig_Proposal_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Multisig_Proposal_Max_Order_By>;
-  min?: InputMaybe<Multisig_Proposal_Min_Order_By>;
-  stddev?: InputMaybe<Multisig_Proposal_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Multisig_Proposal_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Multisig_Proposal_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Multisig_Proposal_Sum_Order_By>;
-  var_pop?: InputMaybe<Multisig_Proposal_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Multisig_Proposal_Var_Samp_Order_By>;
-  variance?: InputMaybe<Multisig_Proposal_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Multisig_Proposal_Avg_Fields = {
   __typename?: 'multisig_proposal_avg_fields';
   id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
   voting_end_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by avg() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Avg_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "multisig_proposal". All fields are combined with a logical 'AND'. */
@@ -3049,8 +2620,6 @@ export type Multisig_Proposal_Bool_Exp = {
   group_account?: InputMaybe<Account_Bool_Exp>;
   id?: InputMaybe<Int_Comparison_Exp>;
   messages?: InputMaybe<Jsonb_Comparison_Exp>;
-  multisig_proposal_votes?: InputMaybe<Multisig_Proposal_Vote_Bool_Exp>;
-  multisig_proposal_votes_aggregate?: InputMaybe<Multisig_Proposal_Vote_Aggregate_Bool_Exp>;
   proposer?: InputMaybe<String_Comparison_Exp>;
   proposer_account?: InputMaybe<Account_Bool_Exp>;
   status?: InputMaybe<String_Comparison_Exp>;
@@ -3069,16 +2638,6 @@ export type Multisig_Proposal_Max_Fields = {
   voting_end_block?: Maybe<Scalars['bigint']['output']>;
 };
 
-/** order by max() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Max_Order_By = {
-  group?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  proposer?: InputMaybe<Order_By>;
-  status?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Multisig_Proposal_Min_Fields = {
   __typename?: 'multisig_proposal_min_fields';
@@ -3090,16 +2649,6 @@ export type Multisig_Proposal_Min_Fields = {
   voting_end_block?: Maybe<Scalars['bigint']['output']>;
 };
 
-/** order by min() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Min_Order_By = {
-  group?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  proposer?: InputMaybe<Order_By>;
-  status?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
-};
-
 /** Ordering options when selecting data from "multisig_proposal". */
 export type Multisig_Proposal_Order_By = {
   final_tally_result?: InputMaybe<Order_By>;
@@ -3107,7 +2656,6 @@ export type Multisig_Proposal_Order_By = {
   group_account?: InputMaybe<Account_Order_By>;
   id?: InputMaybe<Order_By>;
   messages?: InputMaybe<Order_By>;
-  multisig_proposal_votes_aggregate?: InputMaybe<Multisig_Proposal_Vote_Aggregate_Order_By>;
   proposer?: InputMaybe<Order_By>;
   proposer_account?: InputMaybe<Account_Order_By>;
   status?: InputMaybe<Order_By>;
@@ -3143,13 +2691,6 @@ export type Multisig_Proposal_Stddev_Fields = {
   voting_end_block?: Maybe<Scalars['Float']['output']>;
 };
 
-/** order by stddev() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Stddev_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Multisig_Proposal_Stddev_Pop_Fields = {
   __typename?: 'multisig_proposal_stddev_pop_fields';
@@ -3158,26 +2699,12 @@ export type Multisig_Proposal_Stddev_Pop_Fields = {
   voting_end_block?: Maybe<Scalars['Float']['output']>;
 };
 
-/** order by stddev_pop() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Stddev_Pop_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate stddev_samp on columns */
 export type Multisig_Proposal_Stddev_Samp_Fields = {
   __typename?: 'multisig_proposal_stddev_samp_fields';
   id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
   voting_end_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by stddev_samp() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Stddev_Samp_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "multisig_proposal" */
@@ -3208,26 +2735,12 @@ export type Multisig_Proposal_Sum_Fields = {
   voting_end_block?: Maybe<Scalars['bigint']['output']>;
 };
 
-/** order by sum() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Sum_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate var_pop on columns */
 export type Multisig_Proposal_Var_Pop_Fields = {
   __typename?: 'multisig_proposal_var_pop_fields';
   id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
   voting_end_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by var_pop() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Var_Pop_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
@@ -3238,26 +2751,12 @@ export type Multisig_Proposal_Var_Samp_Fields = {
   voting_end_block?: Maybe<Scalars['Float']['output']>;
 };
 
-/** order by var_samp() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Var_Samp_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Multisig_Proposal_Variance_Fields = {
   __typename?: 'multisig_proposal_variance_fields';
   id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
   voting_end_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by variance() on columns of table "multisig_proposal" */
-export type Multisig_Proposal_Variance_Order_By = {
-  id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voting_end_block?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "multisig_proposal_vote" */
@@ -3283,17 +2782,6 @@ export type Multisig_Proposal_Vote_Aggregate = {
   nodes: Array<Multisig_Proposal_Vote>;
 };
 
-export type Multisig_Proposal_Vote_Aggregate_Bool_Exp = {
-  count?: InputMaybe<Multisig_Proposal_Vote_Aggregate_Bool_Exp_Count>;
-};
-
-export type Multisig_Proposal_Vote_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<Multisig_Proposal_Vote_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']['input']>;
-  filter?: InputMaybe<Multisig_Proposal_Vote_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
-};
-
 /** aggregate fields of "multisig_proposal_vote" */
 export type Multisig_Proposal_Vote_Aggregate_Fields = {
   __typename?: 'multisig_proposal_vote_aggregate_fields';
@@ -3317,34 +2805,12 @@ export type Multisig_Proposal_Vote_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-/** order by aggregate values of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Aggregate_Order_By = {
-  avg?: InputMaybe<Multisig_Proposal_Vote_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Multisig_Proposal_Vote_Max_Order_By>;
-  min?: InputMaybe<Multisig_Proposal_Vote_Min_Order_By>;
-  stddev?: InputMaybe<Multisig_Proposal_Vote_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Multisig_Proposal_Vote_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Multisig_Proposal_Vote_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Multisig_Proposal_Vote_Sum_Order_By>;
-  var_pop?: InputMaybe<Multisig_Proposal_Vote_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Multisig_Proposal_Vote_Var_Samp_Order_By>;
-  variance?: InputMaybe<Multisig_Proposal_Vote_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Multisig_Proposal_Vote_Avg_Fields = {
   __typename?: 'multisig_proposal_vote_avg_fields';
   option?: Maybe<Scalars['Float']['output']>;
   proposal_id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by avg() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Avg_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "multisig_proposal_vote". All fields are combined with a logical 'AND'. */
@@ -3372,15 +2838,6 @@ export type Multisig_Proposal_Vote_Max_Fields = {
   voter?: Maybe<Scalars['String']['output']>;
 };
 
-/** order by max() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Max_Order_By = {
-  index?: InputMaybe<Order_By>;
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voter?: InputMaybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Multisig_Proposal_Vote_Min_Fields = {
   __typename?: 'multisig_proposal_vote_min_fields';
@@ -3389,15 +2846,6 @@ export type Multisig_Proposal_Vote_Min_Fields = {
   proposal_id?: Maybe<Scalars['Int']['output']>;
   submit_block?: Maybe<Scalars['bigint']['output']>;
   voter?: Maybe<Scalars['String']['output']>;
-};
-
-/** order by min() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Min_Order_By = {
-  index?: InputMaybe<Order_By>;
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-  voter?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "multisig_proposal_vote". */
@@ -3434,13 +2882,6 @@ export type Multisig_Proposal_Vote_Stddev_Fields = {
   submit_block?: Maybe<Scalars['Float']['output']>;
 };
 
-/** order by stddev() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Stddev_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Multisig_Proposal_Vote_Stddev_Pop_Fields = {
   __typename?: 'multisig_proposal_vote_stddev_pop_fields';
@@ -3449,26 +2890,12 @@ export type Multisig_Proposal_Vote_Stddev_Pop_Fields = {
   submit_block?: Maybe<Scalars['Float']['output']>;
 };
 
-/** order by stddev_pop() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Stddev_Pop_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate stddev_samp on columns */
 export type Multisig_Proposal_Vote_Stddev_Samp_Fields = {
   __typename?: 'multisig_proposal_vote_stddev_samp_fields';
   option?: Maybe<Scalars['Float']['output']>;
   proposal_id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by stddev_samp() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Stddev_Samp_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "multisig_proposal_vote" */
@@ -3496,26 +2923,12 @@ export type Multisig_Proposal_Vote_Sum_Fields = {
   submit_block?: Maybe<Scalars['bigint']['output']>;
 };
 
-/** order by sum() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Sum_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate var_pop on columns */
 export type Multisig_Proposal_Vote_Var_Pop_Fields = {
   __typename?: 'multisig_proposal_vote_var_pop_fields';
   option?: Maybe<Scalars['Float']['output']>;
   proposal_id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by var_pop() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Var_Pop_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
@@ -3526,26 +2939,12 @@ export type Multisig_Proposal_Vote_Var_Samp_Fields = {
   submit_block?: Maybe<Scalars['Float']['output']>;
 };
 
-/** order by var_samp() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Var_Samp_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Multisig_Proposal_Vote_Variance_Fields = {
   __typename?: 'multisig_proposal_vote_variance_fields';
   option?: Maybe<Scalars['Float']['output']>;
   proposal_id?: Maybe<Scalars['Float']['output']>;
   submit_block?: Maybe<Scalars['Float']['output']>;
-};
-
-/** order by variance() on columns of table "multisig_proposal_vote" */
-export type Multisig_Proposal_Vote_Variance_Order_By = {
-  option?: InputMaybe<Order_By>;
-  proposal_id?: InputMaybe<Order_By>;
-  submit_block?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "nft_events" */
@@ -4020,10 +3419,11 @@ export type Pre_Commit_Variance_Order_By = {
 /** columns and relationships of "proposal" */
 export type Proposal = {
   __typename?: 'proposal';
-  content: Scalars['jsonb']['output'];
+  content: Scalars['String']['output'];
   deposit_end_time?: Maybe<Scalars['timestamp']['output']>;
   description: Scalars['String']['output'];
   id: Scalars['Int']['output'];
+  metadata?: Maybe<Scalars['String']['output']>;
   /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
   proposal_route: Scalars['String']['output'];
@@ -4046,12 +3446,6 @@ export type Proposal = {
   validator_status_snapshots: Array<Proposal_Validator_Status_Snapshot>;
   voting_end_time?: Maybe<Scalars['timestamp']['output']>;
   voting_start_time?: Maybe<Scalars['timestamp']['output']>;
-};
-
-
-/** columns and relationships of "proposal" */
-export type ProposalContentArgs = {
-  path?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -4166,10 +3560,11 @@ export type Proposal_Bool_Exp = {
   _and?: InputMaybe<Array<Proposal_Bool_Exp>>;
   _not?: InputMaybe<Proposal_Bool_Exp>;
   _or?: InputMaybe<Array<Proposal_Bool_Exp>>;
-  content?: InputMaybe<Jsonb_Comparison_Exp>;
+  content?: InputMaybe<String_Comparison_Exp>;
   deposit_end_time?: InputMaybe<Timestamp_Comparison_Exp>;
   description?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Int_Comparison_Exp>;
+  metadata?: InputMaybe<String_Comparison_Exp>;
   proposal_deposits?: InputMaybe<Proposal_Deposit_Bool_Exp>;
   proposal_route?: InputMaybe<String_Comparison_Exp>;
   proposal_tally_result?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
@@ -4343,9 +3738,11 @@ export type Proposal_Deposit_Variance_Order_By = {
 /** aggregate max on columns */
 export type Proposal_Max_Fields = {
   __typename?: 'proposal_max_fields';
+  content?: Maybe<Scalars['String']['output']>;
   deposit_end_time?: Maybe<Scalars['timestamp']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['Int']['output']>;
+  metadata?: Maybe<Scalars['String']['output']>;
   proposal_route?: Maybe<Scalars['String']['output']>;
   proposal_type?: Maybe<Scalars['String']['output']>;
   proposer_address?: Maybe<Scalars['String']['output']>;
@@ -4358,9 +3755,11 @@ export type Proposal_Max_Fields = {
 
 /** order by max() on columns of table "proposal" */
 export type Proposal_Max_Order_By = {
+  content?: InputMaybe<Order_By>;
   deposit_end_time?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  metadata?: InputMaybe<Order_By>;
   proposal_route?: InputMaybe<Order_By>;
   proposal_type?: InputMaybe<Order_By>;
   proposer_address?: InputMaybe<Order_By>;
@@ -4374,9 +3773,11 @@ export type Proposal_Max_Order_By = {
 /** aggregate min on columns */
 export type Proposal_Min_Fields = {
   __typename?: 'proposal_min_fields';
+  content?: Maybe<Scalars['String']['output']>;
   deposit_end_time?: Maybe<Scalars['timestamp']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['Int']['output']>;
+  metadata?: Maybe<Scalars['String']['output']>;
   proposal_route?: Maybe<Scalars['String']['output']>;
   proposal_type?: Maybe<Scalars['String']['output']>;
   proposer_address?: Maybe<Scalars['String']['output']>;
@@ -4389,9 +3790,11 @@ export type Proposal_Min_Fields = {
 
 /** order by min() on columns of table "proposal" */
 export type Proposal_Min_Order_By = {
+  content?: InputMaybe<Order_By>;
   deposit_end_time?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  metadata?: InputMaybe<Order_By>;
   proposal_route?: InputMaybe<Order_By>;
   proposal_type?: InputMaybe<Order_By>;
   proposer_address?: InputMaybe<Order_By>;
@@ -4408,6 +3811,7 @@ export type Proposal_Order_By = {
   deposit_end_time?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  metadata?: InputMaybe<Order_By>;
   proposal_deposits_aggregate?: InputMaybe<Proposal_Deposit_Aggregate_Order_By>;
   proposal_route?: InputMaybe<Order_By>;
   proposal_tally_result?: InputMaybe<Proposal_Tally_Result_Order_By>;
@@ -4435,6 +3839,8 @@ export enum Proposal_Select_Column {
   Description = 'description',
   /** column name */
   Id = 'id',
+  /** column name */
+  Metadata = 'metadata',
   /** column name */
   ProposalRoute = 'proposal_route',
   /** column name */
@@ -4556,10 +3962,11 @@ export type Proposal_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Proposal_Stream_Cursor_Value_Input = {
-  content?: InputMaybe<Scalars['jsonb']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
   deposit_end_time?: InputMaybe<Scalars['timestamp']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['Int']['input']>;
+  metadata?: InputMaybe<Scalars['String']['input']>;
   proposal_route?: InputMaybe<Scalars['String']['input']>;
   proposal_type?: InputMaybe<Scalars['String']['input']>;
   proposer_address?: InputMaybe<Scalars['String']['input']>;
@@ -5145,7 +4552,7 @@ export type Query_Root = {
   bridge_token_metadata: Array<Bridge_Token_Metadata>;
   /** fetch data from the table: "bridge_token_metadata" using primary key columns */
   bridge_token_metadata_by_pk?: Maybe<Bridge_Token_Metadata>;
-  /** An array relationship */
+  /** fetch data from the table: "bridge_tokens" */
   bridge_tokens: Array<Bridge_Tokens>;
   /** fetch data from the table: "bridge_tokens" using primary key columns */
   bridge_tokens_by_pk?: Maybe<Bridge_Tokens>;
@@ -5187,8 +4594,6 @@ export type Query_Root = {
   message: Array<Message>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
-  /** execute function "messages_by_type" which returns "message" */
-  messages_by_type: Array<Message>;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch data from the table: "modules" */
@@ -5680,16 +5085,6 @@ export type Query_RootMessageArgs = {
 
 export type Query_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
-  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Message_Order_By>>;
-  where?: InputMaybe<Message_Bool_Exp>;
-};
-
-
-export type Query_RootMessages_By_TypeArgs = {
-  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -6549,7 +5944,7 @@ export type Subscription_Root = {
   bridge_token_metadata_by_pk?: Maybe<Bridge_Token_Metadata>;
   /** fetch data from the table in a streaming manner: "bridge_token_metadata" */
   bridge_token_metadata_stream: Array<Bridge_Token_Metadata>;
-  /** An array relationship */
+  /** fetch data from the table: "bridge_tokens" */
   bridge_tokens: Array<Bridge_Tokens>;
   /** fetch data from the table: "bridge_tokens" using primary key columns */
   bridge_tokens_by_pk?: Maybe<Bridge_Tokens>;
@@ -6619,8 +6014,6 @@ export type Subscription_Root = {
   message_stream: Array<Message>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
-  /** execute function "messages_by_type" which returns "message" */
-  messages_by_type: Array<Message>;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch data from the table in a streaming manner: "mint_params" */
@@ -7267,16 +6660,6 @@ export type Subscription_RootMessage_StreamArgs = {
 
 export type Subscription_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
-  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Message_Order_By>>;
-  where?: InputMaybe<Message_Bool_Exp>;
-};
-
-
-export type Subscription_RootMessages_By_TypeArgs = {
-  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8523,8 +7906,6 @@ export type Transaction = {
   logs?: Maybe<Scalars['jsonb']['output']>;
   memo?: Maybe<Scalars['String']['output']>;
   messages: Scalars['jsonb']['output'];
-  /** An array relationship */
-  messagesByPartitionIdTransactionHash: Array<Message>;
   raw_log?: Maybe<Scalars['String']['output']>;
   signatures: Scalars['_text']['output'];
   signer_infos: Scalars['jsonb']['output'];
@@ -8547,16 +7928,6 @@ export type TransactionLogsArgs = {
 /** columns and relationships of "transaction" */
 export type TransactionMessagesArgs = {
   path?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-/** columns and relationships of "transaction" */
-export type TransactionMessagesByPartitionIdTransactionHashArgs = {
-  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Message_Order_By>>;
-  where?: InputMaybe<Message_Bool_Exp>;
 };
 
 
@@ -8601,7 +7972,6 @@ export type Transaction_Bool_Exp = {
   logs?: InputMaybe<Jsonb_Comparison_Exp>;
   memo?: InputMaybe<String_Comparison_Exp>;
   messages?: InputMaybe<Jsonb_Comparison_Exp>;
-  messagesByPartitionIdTransactionHash?: InputMaybe<Message_Bool_Exp>;
   raw_log?: InputMaybe<String_Comparison_Exp>;
   signatures?: InputMaybe<_Text_Comparison_Exp>;
   signer_infos?: InputMaybe<Jsonb_Comparison_Exp>;
@@ -8639,7 +8009,6 @@ export type Transaction_Order_By = {
   logs?: InputMaybe<Order_By>;
   memo?: InputMaybe<Order_By>;
   messages?: InputMaybe<Order_By>;
-  messagesByPartitionIdTransactionHash_aggregate?: InputMaybe<Message_Aggregate_Order_By>;
   raw_log?: InputMaybe<Order_By>;
   signatures?: InputMaybe<Order_By>;
   signer_infos?: InputMaybe<Order_By>;
@@ -10458,24 +9827,6 @@ export type MsgTypesByAddressQueryVariables = Exact<{
 
 export type MsgTypesByAddressQuery = { __typename?: 'query_root', msgTypes: Array<{ __typename?: 'message', height: any, index: any, involved_accounts_addresses: any }> };
 
-export type MessagesByTypesListenerSubscriptionVariables = Exact<{
-  types?: InputMaybe<Scalars['_text']['input']>;
-  limit?: InputMaybe<Scalars['bigint']['input']>;
-  offset?: InputMaybe<Scalars['bigint']['input']>;
-}>;
-
-
-export type MessagesByTypesListenerSubscription = { __typename?: 'subscription_root', messagesByTypes: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
-
-export type MessagesByTypesQueryVariables = Exact<{
-  types?: InputMaybe<Scalars['_text']['input']>;
-  limit?: InputMaybe<Scalars['bigint']['input']>;
-  offset?: InputMaybe<Scalars['bigint']['input']>;
-}>;
-
-
-export type MessagesByTypesQuery = { __typename?: 'query_root', messagesByTypes: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
-
 export type GetMessagesByAddressQueryVariables = Exact<{
   address?: InputMaybe<Scalars['_text']['input']>;
   limit?: InputMaybe<Scalars['bigint']['input']>;
@@ -10490,6 +9841,7 @@ export type GetTransactionsByAddressRegexQueryVariables = Exact<{
   _regex?: InputMaybe<Scalars['String']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Transaction_Order_By> | Transaction_Order_By>;
 }>;
 
 
@@ -10510,7 +9862,7 @@ export type ProposalDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ProposalDetailsQuery = { __typename?: 'query_root', proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, proposalType: string, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
+export type ProposalDetailsQuery = { __typename?: 'query_root', proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: string, proposer: string, proposalId: number, submitTime: any, proposalType: string, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
 
 export type ProposalDetailsTallyQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']['input']>;
@@ -11584,104 +10936,6 @@ export type MsgTypesByAddressQueryHookResult = ReturnType<typeof useMsgTypesByAd
 export type MsgTypesByAddressLazyQueryHookResult = ReturnType<typeof useMsgTypesByAddressLazyQuery>;
 export type MsgTypesByAddressSuspenseQueryHookResult = ReturnType<typeof useMsgTypesByAddressSuspenseQuery>;
 export type MsgTypesByAddressQueryResult = Apollo.QueryResult<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>;
-export const MessagesByTypesListenerDocument = gql`
-    subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
-  messagesByTypes: messages_by_type(
-    args: {types: $types, limit: $limit, offset: $offset}
-  ) {
-    transaction {
-      height
-      hash
-      success
-      messages
-      logs
-      block {
-        height
-        timestamp
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useMessagesByTypesListenerSubscription__
- *
- * To run a query within a React component, call `useMessagesByTypesListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useMessagesByTypesListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useMessagesByTypesListenerSubscription({
- *   variables: {
- *      types: // value for 'types'
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useMessagesByTypesListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<MessagesByTypesListenerSubscription, MessagesByTypesListenerSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<MessagesByTypesListenerSubscription, MessagesByTypesListenerSubscriptionVariables>(MessagesByTypesListenerDocument, options);
-      }
-export type MessagesByTypesListenerSubscriptionHookResult = ReturnType<typeof useMessagesByTypesListenerSubscription>;
-export type MessagesByTypesListenerSubscriptionResult = Apollo.SubscriptionResult<MessagesByTypesListenerSubscription>;
-export const MessagesByTypesDocument = gql`
-    query MessagesByTypes($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
-  messagesByTypes: messages_by_type(
-    args: {types: $types, limit: $limit, offset: $offset}
-  ) {
-    transaction {
-      height
-      hash
-      success
-      messages
-      logs
-      block {
-        height
-        timestamp
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useMessagesByTypesQuery__
- *
- * To run a query within a React component, call `useMessagesByTypesQuery` and pass it any options that fit your needs.
- * When your component renders, `useMessagesByTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useMessagesByTypesQuery({
- *   variables: {
- *      types: // value for 'types'
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useMessagesByTypesQuery(baseOptions?: Apollo.QueryHookOptions<MessagesByTypesQuery, MessagesByTypesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<MessagesByTypesQuery, MessagesByTypesQueryVariables>(MessagesByTypesDocument, options);
-      }
-export function useMessagesByTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MessagesByTypesQuery, MessagesByTypesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<MessagesByTypesQuery, MessagesByTypesQueryVariables>(MessagesByTypesDocument, options);
-        }
-export function useMessagesByTypesSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<MessagesByTypesQuery, MessagesByTypesQueryVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<MessagesByTypesQuery, MessagesByTypesQueryVariables>(MessagesByTypesDocument, options);
-        }
-export type MessagesByTypesQueryHookResult = ReturnType<typeof useMessagesByTypesQuery>;
-export type MessagesByTypesLazyQueryHookResult = ReturnType<typeof useMessagesByTypesLazyQuery>;
-export type MessagesByTypesSuspenseQueryHookResult = ReturnType<typeof useMessagesByTypesSuspenseQuery>;
-export type MessagesByTypesQueryResult = Apollo.QueryResult<MessagesByTypesQuery, MessagesByTypesQueryVariables>;
 export const GetMessagesByAddressDocument = gql`
     query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {
   messagesByAddress: messages_by_address(
@@ -11738,11 +10992,12 @@ export type GetMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetMe
 export type GetMessagesByAddressSuspenseQueryHookResult = ReturnType<typeof useGetMessagesByAddressSuspenseQuery>;
 export type GetMessagesByAddressQueryResult = Apollo.QueryResult<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>;
 export const GetTransactionsByAddressRegexDocument = gql`
-    query GetTransactionsByAddressRegex($_regex: String, $offset: Int = 0, $limit: Int = 10) {
+    query GetTransactionsByAddressRegex($_regex: String, $offset: Int = 0, $limit: Int = 10, $order_by: [transaction_order_by!]) {
   transaction(
     where: {signer_infos: {_cast: {String: {_regex: $_regex}}}}
     offset: $offset
     limit: $limit
+    order_by: $order_by
   ) {
     hash
     signatures
@@ -11774,6 +11029,7 @@ export const GetTransactionsByAddressRegexDocument = gql`
  *      _regex: // value for '_regex'
  *      offset: // value for 'offset'
  *      limit: // value for 'limit'
+ *      order_by: // value for 'order_by'
  *   },
  * });
  */
