@@ -6,6 +6,8 @@ on:
 
 env:
   CI_ACCESS_TOKEN: ${{ secrets.CI_ACCESS_TOKEN }}
+  GITHUB_REPOSITORY: ghcr.io/bridgeless-project/bridgeless-scan
+
 
 jobs:
   converge-github:
@@ -18,15 +20,28 @@ jobs:
           fetch-depth: 0
 
       - name: Log in to registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+        # This is where you will update the personal access token to GITHUB_TOKEN
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | buildah login ghcr.io -u $ --password-stdin
 
       - name: Create .env file
         run: |
           echo "${{ secrets.ENV_MAINNET }}" | base64 -d > .env
 
-      - name: Run Skaffold pipeline as command
-        uses: hiberbee/github-action-skaffold@latest
-        id: build
-        with:
-          command: build --tag ${{ github.sha }}
-          repository: ghcr.io/${{ github.repository_owner }}
+      - name: Build and Push Image
+        env:
+          IMAGE: ${{ env.GITHUB_REPOSITORY }}:${{ github.sha }}
+          CACHE_REPO: ${{ env.GITHUB_REPOSITORY }}/cache
+        run: |
+          buildah build \
+            -f Dockerfile \
+            --layers \
+            --cache-from $CACHE_REPO \
+            --cache-to $CACHE_REPO \
+            -t $IMAGE \
+            --build-arg CI_ACCESS_TOKEN=$CI_ACCESS_TOKEN \
+            .
+
+      - name: Push Image
+        env:
+          IMAGE: ${{ env.GITHUB_REPOSITORY }}:${{ github.sha }}
+        run: buildah push $IMAGE
