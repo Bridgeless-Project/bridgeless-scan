@@ -1,4 +1,4 @@
-name: Build Bridgeless scan docker image tag
+name: Build ZEL scan Docker image tag
 on:
   push:
     tags:
@@ -7,6 +7,10 @@ on:
 
 env:
   CI_ACCESS_TOKEN: ${{ secrets.CI_ACCESS_TOKEN }}
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   converge-github:

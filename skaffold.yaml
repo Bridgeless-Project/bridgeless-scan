@@ -4,7 +4,7 @@ build:
   local:
     useBuildkit: true
   artifacts:
-    - image: bridgeless-scan
+    - image: zel-scan
       docker:
         buildArgs:
           CI_ACCESS_TOKEN: "{{.CI_ACCESS_TOKEN}}"
