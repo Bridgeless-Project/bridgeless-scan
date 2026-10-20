@@ -369,7 +369,7 @@ export const useAccountRewards = () => {
     formattedRawData.delegationRewards = R.pathOr([], ['delegationRewards'], rewards);
     const updatedRewards = formatRewards(formattedRawData);
 
-    if (Object.keys(updatedRewards).length > 0) {
+    if (rewards.loaded || Object.keys(updatedRewards).length > 0) {
       handleSetState((prevState) => ({
         ...prevState,
         rewards: updatedRewards,

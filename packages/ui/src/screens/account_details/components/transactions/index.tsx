@@ -14,10 +14,10 @@ import { useRouter } from 'next/router';
 const Transactions: FC<ComponentDefault> = (props) => {
   const router = useRouter();
 
-  const [addressRegex, setAddressRegex] = useState<string>();
+  const [addressRegex, setAddressRegex] = useState<string | null>();
 
   useEffect(() => {
-    if (addressRegex) return;
+    if (addressRegex !== undefined) return;
 
     const init = async () => {
       setAddressRegex(await getAddressPubKeyRegex(router?.query?.address as string));
@@ -27,7 +27,7 @@ const Transactions: FC<ComponentDefault> = (props) => {
 
   }, [addressRegex, router?.query?.address])
 
-  if (!addressRegex) return null;
+  if (addressRegex === undefined) return null;
 
   return (
     <TransactionsContent {...props} addressRegex={addressRegex} />
@@ -36,7 +36,7 @@ const Transactions: FC<ComponentDefault> = (props) => {
 }
 
 const TransactionsContent: FC<ComponentDefault & {
-  addressRegex: string
+  addressRegex: string | null
 }> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const { classes, cx } = useStyles();

@@ -15,7 +15,7 @@ import chainConfig from '@/chainConfig';
 
 const LIMIT = 50;
 
-export const getAddressPubKeyRegex = async (address: string) => {
+export const getAddressPubKeyRegex = async (address: string): Promise<string | null> => {
   const response = await fetch(`${chainConfig().restApiUrl}/accounts/${address}`);
 
   if (!response.ok) {
@@ -30,7 +30,7 @@ export const getAddressPubKeyRegex = async (address: string) => {
         pub_key: {
           '@type': string;
           key: string;
-        };
+        } | null;
         account_number: string;
         sequence: string;
       };
@@ -38,7 +38,10 @@ export const getAddressPubKeyRegex = async (address: string) => {
     };
   };
 
-  const escapedString = data.account.base_account.pub_key.key.replace(
+  const pubKey = data.account?.base_account?.pub_key?.key;
+  if (!pubKey) return null;
+
+  const escapedString = pubKey.replace(
     /[.*+?^${}()|[\]\\]/g,
     '\\$&'
   );
@@ -78,12 +81,12 @@ const formatTransactions = (data: GetMessagesByAddressQuery): Transactions[] => 
   });
 };
 
-export function useTransactions(addressRegex: string) {
+export function useTransactions(addressRegex: string | null) {
   const router = useRouter();
   const [state, setState] = useState<TransactionState>({
     data: [],
     hasNextPage: false,
-    isNextPageLoading: true,
+    isNextPageLoading: Boolean(addressRegex),
     offsetCount: 0,
   });
   const msgTypes = useRecoilValue(readFilter);
@@ -98,10 +101,11 @@ export function useTransactions(addressRegex: string) {
         ...prevState,
         data: [],
         hasNextPage: false,
-        isNextPageLoading: true,
+        isNextPageLoading: Boolean(addressRegex),
         offsetCount: 0,
       }));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router?.query?.address, msgTypes]);
 
   const handleSetState = (stateChange: (prevState: TransactionState) => TransactionState) => {
@@ -112,6 +116,7 @@ export function useTransactions(addressRegex: string) {
   };
 
   const { fetchMore } = useGetTransactionsByAddressRegexQuery({
+    skip: !addressRegex,
     variables: {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
