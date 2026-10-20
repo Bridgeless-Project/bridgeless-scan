@@ -2,7 +2,7 @@
   "chainName": "bridgeless",
   "title": "Bridgeless Devnet Block Explorer",
   "extra": {
-    "profile": true,
+    "profile": false,
     "graphqlWs": false
   },
   "previewImage": "../packages/shared-utils/assets/logos/bridgeless-light.svg",

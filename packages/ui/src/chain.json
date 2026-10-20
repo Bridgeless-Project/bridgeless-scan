@@ -2,7 +2,7 @@
   "chainName": "bridgeless",
   "title": "Bridgeless Block Explorer",
   "extra": {
-    "profile": true,
+    "profile": false,
     "graphqlWs": false
   },
   "previewImage": "../../shared-utils/assets/logos/bridgeless-light.svg",

@@ -133,5 +133,8 @@ export const useRewards = (address?: string) => {
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
-  return data ?? defaultReturnValue;
+  return useMemo(
+    () => ({ ...(data ?? defaultReturnValue), loaded: Boolean(data) }),
+    [data, defaultReturnValue]
+  );
 };
